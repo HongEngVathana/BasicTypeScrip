@@ -275,3 +275,135 @@ dynamicLengTuple = ["Only string"];
 
 console.log(dynamicLengTuple);
 //Using a rest element at the end of a tuple allows for dynamic length with a specific type.
+
+//===========================================Objrct Types====================================
+
+//1 .Basic Object Types
+
+type person = {
+  name: string;
+  age: number;
+};
+//In this example, the Person type describes an object that has two properties: name (a string) and age (a number).
+
+//2. Optinal Properties
+
+type Car = {
+  brand: string;
+  model?: string;
+  year: number;
+};
+
+//Here, model is an optional property, so a Car object may or may not have a model property.
+
+//4. index Signatures
+
+type Dictionary = {
+  [key: string]: string;
+};
+//This Dictionary type represents an object where all keys are strings and all values are string
+
+//5. Nested Object Types
+type Address = {
+  street: string;
+  city: string;
+  zipCode: number;
+};
+type USer = {
+  name: string;
+  address: Address;
+};
+//Here, User has an address property that itself is an object of type Address.
+
+//6 . Intersection Types
+
+//Intersection types (&) allow you to combine multiple types into one. An object of an intersection type must satisfy all the combined types:
+
+type Employee1 = {
+  id: number;
+  departemt: string;
+};
+type Manager = Employee & {
+  teamSIze: number;
+};
+
+//7.Union Types
+
+//Union types (|) let you define a type that could be one of several types:
+type Status = "Hong" | "Eng" | "Vathana";
+
+type UserStatus = {
+  userId: number;
+  status: Status;
+};
+//UserStatus type has a status property that can be one of three string literals: "active", "inactive", or "suspended".
+
+//8.Mapped Types
+
+//Mapped types allow you to create a new type by transforming properties of an existing type. This is useful for creating utility types like Partial, Readonly, and Required:
+type Partia1l<T> = {
+  [p in keyof T]?: T[p];
+};
+type PartialPerson = Partial<Person>;
+//Partial<Person> makes all properties of the Person type optional.
+
+//9. Type Aliases for Objects
+
+//Type aliases provide a way to name a complex type for reuse. They are particularly useful when working with objects:
+
+type Point = {
+  x: number;
+  y: number;
+};
+type Line = {
+  start: Point;
+  end: Point;
+};
+//In this example, Point and Line are type aliases that make the code more readable and reusable.
+
+//10/Utility Types
+
+//Partial<T>: Makes all properties of T optional.
+//Required<T>: Makes all properties of T required.
+//Readonly<T>: Makes all properties of T read-only.
+//Record<K, T>: Constructs an object type with keys of type K and values of type T.
+//Pick<T, K>: Constructs a type by picking a set of properties K from T.
+//Omit<T, K>: Constructs a type by omitting a set of properties K from T.
+
+//11.Tyoe Inference with object Types
+
+const studen = {
+  name: "HongEngVathana",
+  age: 19,
+};
+//TypeScript can automatically infer the types of properties in objects if you initialize them immediately:
+
+//12.Extending and Merging Object Types
+type Person1 = {
+  name: string;
+  age: number;
+};
+type Employee3 = Person1 & {
+  jobTitle: string;
+};
+//Object types can be extended or merged using the & (intersection) operator, which is useful when you want to create new types based on existing ones:
+
+//13 .Discriminated Unions
+type Dog = {
+  type: "dog";
+  breed: string;
+};
+type Cat = {
+  type: "Cat";
+  color: string;
+};
+
+type Pet = Dog | Cat;
+function getPetInfo(pet: Pet) {
+  if (pet.type === "dog") {
+    console.log(`Dog breed :${pet.breed}`);
+  } else {
+    console.log(`Cat color:${pet.color}`);
+  }
+}
+//Discriminated unions, also known as tagged unions, are a powerful feature in TypeScript that allows for type-safe handling of different object shapes. This is often achieved using a common property (the "discriminant")

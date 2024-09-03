@@ -1,6 +1,7 @@
 "use strict";
 //1 about DataType
 //2 about Array
+//3.Tuple
 //1=======================================Data Type==========================================
 // Number
 let integer = 42;
@@ -140,6 +141,7 @@ let arr2 = [4, 5, 6];
 let mergeArray = [...arr1, ...arr2];
 console.log(arr1);
 //The mergedArray is a combination of arr1 and arr2.
+//================================================Tuple============================================
 //3 Tuples
 // 1. Basic Tuple
 let tuple1;
@@ -182,4 +184,25 @@ let dynamicLengTuple;
 dynamicLengTuple = ["Number", 1, 2, 3, 4];
 dynamicLengTuple = ["Only string"];
 console.log(dynamicLengTuple);
-//Using a rest element at the end of a tuple allows for dynamic length with a specific type.
+//In this example, Point and Line are type aliases that make the code more readable and reusable.
+//10/Utility Types
+//Partial<T>: Makes all properties of T optional.
+//Required<T>: Makes all properties of T required.
+//Readonly<T>: Makes all properties of T read-only.
+//Record<K, T>: Constructs an object type with keys of type K and values of type T.
+//Pick<T, K>: Constructs a type by picking a set of properties K from T.
+//Omit<T, K>: Constructs a type by omitting a set of properties K from T.
+//11.Tyoe Inference with object Types
+const studen = {
+    name: "HongEngVathana",
+    age: 19,
+};
+function getPetInfo(pet) {
+    if (pet.type === "dog") {
+        console.log(`Dog breed :${pet.breed}`);
+    }
+    else {
+        console.log(`Cat color:${pet.color}`);
+    }
+}
+//Discriminated unions, also known as tagged unions, are a powerful feature in TypeScript that allows for type-safe handling of different object shapes. This is often achieved using a common property (the "discriminant")
