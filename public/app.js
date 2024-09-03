@@ -2,6 +2,7 @@
 //1 about DataType
 //2 about Array
 //3.Tuple
+//4.Object Type
 //1=======================================Data Type==========================================
 // Number
 let integer = 42;
