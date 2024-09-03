@@ -408,3 +408,123 @@ function getPetInfo(pet: Pet) {
   }
 }
 //Discriminated unions, also known as tagged unions, are a powerful feature in TypeScript that allows for type-safe handling of different object shapes. This is often achieved using a common property (the "discriminant")
+
+//5. Enums
+
+//1. Basic Systax of Enums
+//An Enum is defined using the enum keyword followed by the name of the enum and a set of named values:
+enum Driection {
+  Nort,
+  South,
+  East,
+  West,
+}
+//In the example above:
+//Direction is an enum with four members: North, South, East, and West.
+//Each member is assigned an incrementing numeric value starting from 0 by default (North is 0, South is 1, etc.).
+
+//2. Numeric Enums
+
+// Numeric enums are the most common form of enums in TypeScript. As shown in the example above, each member of the enum is automatically assigned a numeric value starting from 0.
+
+// You can also manually assign values to some or all of the members:
+
+enum Direction {
+  Nort = 1,
+  South,
+  East,
+  Wast,
+}
+console.log(Direction);
+// In this example:
+// North is assigned 1, South automatically becomes 2, East becomes 3, and West becomes 4.
+
+//3. String Enums
+
+//String enums allow each member to have a string value. This can be useful when the enum values need to be more descriptive or when they should remain unchanged:
+enum Driection {
+  North = "North",
+  South1 = "South",
+  East1 = "East",
+  West1 = "West",
+}
+//In this example:
+
+//Each member of the enum is explicitly assigned a string value.
+
+//4/ Heterogeneous Enums
+//Enums can have a mix of string and numeric values, although this is generally discouraged as it can lead to confusion:
+enum BooleanLinkeHeterogeneousEnum {
+  No = 0,
+  Yes = "YES",
+}
+//In this example:
+
+//No is assigned the numeric value 0, and Yes is assigned the string "YES".
+
+//Type Ailases
+
+//stntax:
+//type AliasName=Type
+
+type StringOrNuber = string | number;
+let value1: StringOrNuber;
+value1 = "Vatana";
+value1 = 123;
+// value1=true ;//Error: boolean is not assignable to StringOrNumber
+
+//2.Interfaces
+//what is Inerfaces
+
+// An interface in TypeScript is a way to define the shape of an object. It can be used to describe objects, classes, and functions. Interfaces are a powerful tool for creating contracts within your code.
+//Syntax:
+// interface interfaceName{
+//   property:typeof;
+//   method():ReturnType;
+// }
+
+interface Person5 {
+  name: string;
+  age: number;
+  greet(): void;
+}
+const student: Person5 = {
+  name: "Vathana",
+  age: 30,
+  greet() {
+    console.log("Hi Vathana");
+  },
+};
+
+console.log(studen);
+// Use Cases:
+// Object Shapes: Define the structure of objects with properties and methods.
+// Class Contracts: Classes can implement interfaces, ensuring they adhere to a particular structure.
+// Function Signatures: Describe the shape of functions, including parameters and return types.
+// Features:
+// Declaration Merging: Interfaces can be declared multiple times with the same name. TypeScript merges these declarations into a single interface.
+// Extending Interfaces: Interfaces can extend other interfaces, allowing for flexible and reusable type definitions.
+
+// Features:
+// Declaration Merging: Interfaces can be declared multiple times with the same name. TypeScript merges these declarations into a single interface.
+// Extending Interfaces: Interfaces can extend other interfaces, allowing for flexible and reusable type definitions.
+
+interface Person2 {
+  name: string;
+}
+
+interface Person2 {
+  age: number;
+}
+
+const person2: Person = {
+  name: "John",
+  age: 30,
+};
+
+// In this example, the Person interface has two separate declarations that TypeScript merges into one interface.
+
+// Key Differences
+// Declaration Merging: Interfaces support merging, while type aliases do not.
+// Extending Types: Both can extend other types or interfaces, but interfaces are often preferred for object shapes and contracts.
+// Complex Types: Type aliases can represent complex types, such as union or intersection types, which interfaces cannot.
