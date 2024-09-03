@@ -140,3 +140,46 @@ let arr2 = [4, 5, 6];
 let mergeArray = [...arr1, ...arr2];
 console.log(arr1);
 //The mergedArray is a combination of arr1 and arr2.
+//3 Tuples
+// 1. Basic Tuple
+let tuple1;
+tuple = ["Hello", 42];
+//A basic tuple has a fixed length and defined types for each element.
+//2.Optional Elements in Tuples
+let optionalTuple;
+optionalTuple = ["Vathana"];
+optionalTuple = ["Vathana", 19];
+//Tuples can have optional elements using the ? syntax.
+//3. Rest Elements in Tuples
+let restTuple;
+restTuple = ["Vathana"];
+restTuple = ["Hello", 42, 34, 56];
+//TypeScript 4.0 and later supports rest elements in tuples, allowing the definition of tuples with a variable number of elements of a specific type.
+//4. Readonly Tuples
+let readonlyTuple = ["HongEngVathana", 19];
+//Tuples can be marked as readonly to prevent modification after creation.
+//5. Labeled Tuples
+let LabeledTuple;
+LabeledTuple = ["Vathana", 19];
+//TypeScript allows labeling tuple elements for better readability.
+//6. Nested Tuples
+let nestedTuple;
+nestedTuple = ["Point", [20, 20]];
+console.log(nestedTuple);
+//Tuples can be nested, meaning a tuple can contain other tuples as elements.
+//7. Tuple with Union Types
+let unionTuple;
+unionTuple = ["Vathana", 10];
+console.log(unionTuple);
+// unionTuple = ["Vathana", true];
+//8 Tuple with Heterogenneous Types
+let heterogeuusTuple;
+heterogeuusTuple = [1, "Vathana", true];
+console.log(heterogeuusTuple);
+//A tuple can hold elements of different types, making it a heterogeneous tuple
+//9. Tuple with Dyn=namic Length using rest Elements
+let dynamicLengTuple;
+dynamicLengTuple = ["Number", 1, 2, 3, 4];
+dynamicLengTuple = ["Only string"];
+console.log(dynamicLengTuple);
+//Using a rest element at the end of a tuple allows for dynamic length with a specific type.
