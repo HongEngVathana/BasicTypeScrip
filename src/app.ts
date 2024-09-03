@@ -1,5 +1,6 @@
 //1 about DataType
 //2 about Array
+//3.Tuple
 //1=======================================Data Type==========================================
 // Number
 let integer: number = 42;
@@ -204,6 +205,7 @@ let arr2 = [4, 5, 6];
 let mergeArray = [...arr1, ...arr2];
 console.log(arr1);
 //The mergedArray is a combination of arr1 and arr2.
+//================================================Tuple============================================
 
 //3 Tuples
 
