@@ -2,6 +2,8 @@
 //2 about Array
 //3.Tuple
 //4.Object Type
+//5.Enums
+//6.Type Aliases
 //1=======================================Data Type==========================================
 // Number
 let integer: number = 42;
@@ -408,7 +410,7 @@ function getPetInfo(pet: Pet) {
   }
 }
 //Discriminated unions, also known as tagged unions, are a powerful feature in TypeScript that allows for type-safe handling of different object shapes. This is often achieved using a common property (the "discriminant")
-
+//=======================================================Enums=========================================================================
 //5. Enums
 
 //1. Basic Systax of Enums
@@ -461,8 +463,8 @@ enum BooleanLinkeHeterogeneousEnum {
 //In this example:
 
 //No is assigned the numeric value 0, and Yes is assigned the string "YES".
-
-//Type Ailases
+//================================================================Type Ailases===================================================
+//6.Type Ailases
 
 //stntax:
 //type AliasName=Type
@@ -528,3 +530,81 @@ const person2: Person = {
 // Declaration Merging: Interfaces support merging, while type aliases do not.
 // Extending Types: Both can extend other types or interfaces, but interfaces are often preferred for object shapes and contracts.
 // Complex Types: Type aliases can represent complex types, such as union or intersection types, which interfaces cannot.
+
+//7.Type Scrip Umion Types
+
+//What are Union Types?
+
+//A union is created using the | (pipe) symbol to combine munltiple Type into one .for Exanmple
+
+let Value: string | number;
+Value = "Vathana";
+Value = 19;
+
+// In this case, value can either be a string or a number. The ariable value can be assigned either of these types, and TypeScript will enforce the constraints of each type accordingly.
+
+//Key  Features
+//1. Type Safety
+
+// TypeScript ensures that you can only use methods or properties that are common to all types in the union. If you need to use a method specific to one type, you must first check the type using type guards.
+function Hello(Value: string | number) {
+  if (typeof value === "string") {
+    console.log(value.toUpperCase());
+  } else {
+    console.log(value.toFixed(2));
+  }
+}
+
+//2. Type Guards
+
+// Type guards are conditions that allow TypeScript to narrow down the possible type within a specific block of code. Common type guards include typeof, instanceof, and custom type predicates
+
+function getLegth(value: string | string[]): number {
+  if (typeof value === "string") {
+    return value.length;
+  } else {
+    return value.length;
+  }
+}
+console.log(getLegth);
+
+//3. Complex  unions
+
+interface Square {
+  kind: "square";
+  size: number;
+}
+
+interface Rectangle {
+  kind: "rectangle";
+  width: number;
+  height: number;
+}
+
+type Shape = Square | Rectangle;
+
+function getArea(shape: Shape): number {
+  if (shape.kind === "square") {
+    return shape.size * shape.size;
+  } else {
+    return shape.width * shape.height;
+  }
+}
+
+//4. Example
+
+type Status = "success" | "error" | "loading";
+
+function handleResponse(status: Status) {
+  switch (status) {
+    case "success":
+      console.log("Operation was successful!");
+      break;
+    case "error":
+      console.log("There was an error.");
+      break;
+    case "loading":
+      console.log("Loading...");
+      break;
+  }
+}

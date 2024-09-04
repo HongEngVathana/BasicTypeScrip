@@ -3,6 +3,8 @@
 //2 about Array
 //3.Tuple
 //4.Object Type
+//5.Enums
+//6.Type Aliases
 //1=======================================Data Type==========================================
 // Number
 let integer = 42;
@@ -207,6 +209,7 @@ function getPetInfo(pet) {
     }
 }
 //Discriminated unions, also known as tagged unions, are a powerful feature in TypeScript that allows for type-safe handling of different object shapes. This is often achieved using a common property (the "discriminant")
+//=======================================================Enums=========================================================================
 //5. Enums
 //1. Basic Systax of Enums
 //An Enum is defined using the enum keyword followed by the name of the enum and a set of named values:
@@ -270,3 +273,44 @@ const person2 = {
 // Declaration Merging: Interfaces support merging, while type aliases do not.
 // Extending Types: Both can extend other types or interfaces, but interfaces are often preferred for object shapes and contracts.
 // Complex Types: Type aliases can represent complex types, such as union or intersection types, which interfaces cannot.
+//7.Type Scrip Umion Types
+//What are Union Types?
+//A union is created using the | (pipe) symbol to combine munltiple Type into one .for Exanmple
+let Value;
+Value = "Vathana";
+Value = 19;
+// In this case, value can either be a string or a number. The ariable value can be assigned either of these types, and TypeScript will enforce the constraints of each type accordingly.
+//Key  Features
+//1. Type Safety
+// TypeScript ensures that you can only use methods or properties that are common to all types in the union. If you need to use a method specific to one type, you must first check the type using type guards.
+function Hello(Value) {
+    if (typeof value === "string") {
+        console.log(value.toUpperCase());
+    }
+    else {
+        console.log(value.toFixed(2));
+    }
+}
+//2. Type Guards
+// Type guards are conditions that allow TypeScript to narrow down the possible type within a specific block of code. Common type guards include typeof, instanceof, and custom type predicates
+function getLegth(value) {
+    if (typeof value === "string") {
+        return value.length;
+    }
+    else {
+        return value.length;
+    }
+}
+console.log(getLegth);
+function handlePet1(pet) {
+    if ("bark" in pet) {
+        pet.bark();
+    }
+    else {
+        pet.meow();
+    }
+}
+console.log(handlePet1);
+function isAdmin(user) {
+    return "isAdmin" in user && user.isAdmin === true;
+}
