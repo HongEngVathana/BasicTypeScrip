@@ -5,6 +5,7 @@
 //4.Object Type
 //5.Enums
 //6.Type Aliases
+//7.Type Scrip Umion Types
 //1=======================================Data Type==========================================
 // Number
 let integer = 42;
@@ -273,6 +274,7 @@ const person2 = {
 // Declaration Merging: Interfaces support merging, while type aliases do not.
 // Extending Types: Both can extend other types or interfaces, but interfaces are often preferred for object shapes and contracts.
 // Complex Types: Type aliases can represent complex types, such as union or intersection types, which interfaces cannot.
+//================================================Scrip Umion Type==========================
 //7.Type Scrip Umion Types
 //What are Union Types?
 //A union is created using the | (pipe) symbol to combine munltiple Type into one .for Exanmple
@@ -302,15 +304,98 @@ function getLegth(value) {
     }
 }
 console.log(getLegth);
-function handlePet1(pet) {
-    if ("bark" in pet) {
-        pet.bark();
+function getArea(shape) {
+    if (shape.kind === "square") {
+        return shape.size * shape.size;
     }
     else {
-        pet.meow();
+        return shape.width * shape.height;
     }
 }
-console.log(handlePet1);
-function isAdmin(user) {
-    return "isAdmin" in user && user.isAdmin === true;
+function handleResponse(status1) {
+    switch (status1) {
+        case "success":
+            console.log("Operation was successful!");
+            break;
+        case "error":
+            console.log("There was an error.");
+            break;
+        case "loading":
+            console.log("Loading...");
+            break;
+    }
 }
+//=====================================================================================Function=========================================================
+//A simple function with no parameters and no return type.
+function greet() {
+    console.log("Hello Vahana");
+}
+greet();
+// Explanation:
+// function greet(): Declares a function named greet.
+// void: Indicates that the function does not return any value.
+// console.log("Hello, world!"): Prints a message to the console.
+//2. Function with parameters
+//A function that takes parameters.
+function add(a, b) {
+    return a + b;
+}
+let result10 = add(4, 5);
+console.log(result10);
+// Explanation:
+// function add(a: number, b: number): number: A function named add that takes two parameters a and b of type number and returns a number.
+// return a + b: Returns the sum of a and b.
+//3Optional Parameters
+//A function where some parameters are optional.
+function multiply(a, b) {
+    return b ? a * b : a;
+}
+let result1 = multiply(5);
+let result2 = multiply(4, 5);
+console.log(result1);
+// Explanation:
+// b?: number: The ? makes b an optional parameter. If b is not provided, it defaults to undefined.
+// return b ? a * b : a: If b is provided, return the product; otherwise, return a.
+//4. Defaul Parameters
+//A function with default parameter avlues
+function subtract(a, b = 2) {
+    return a - b;
+}
+let result3 = subtract(5);
+let result4 = subtract(5, 4);
+// Explanation:
+// b: number = 2: The b parameter has a default value of 2.
+// If b is not provided, the function uses the default value.
+//5.Rest Parameters
+function sum(...numbers) {
+    return numbers.reduce((acc, curr) => acc + curr, 0);
+}
+// Explanation:
+// ...numbers: number[]: The ... syntax allows the function to take any number of arguments as an array.
+// numbers.reduce(...): Adds up all the numbers in the array.
+//6 .Arrow Function
+const multiply1 = (a, b) => {
+    return a * b;
+};
+let result = multiply(5, 3);
+// Explanation:
+// (a: number, b: number) => number: Declares an arrow function that takes two parameters a and b and returns a number.
+// Arrow functions provide a more concise syntax for writing functions.
+//7. Function with a Return Type
+function divide(a, b) {
+    if (b === 0) {
+        throw new Error("Division by zero is not allowed");
+    }
+    return a / b;
+}
+let result6 = divide(10, 2);
+function greetPerson(person) {
+    return `Hello ,${person.fistName} ${person.lastName}!`;
+}
+let user1 = { firstName: "Vathana", lastName: "Hong" };
+// Key Changes:
+// The interface now uses firstName instead of fistName.
+// The greetPerson function now correctly accesses person.firstName.
+// Output:
+// The console will display: "Hello, Vathana Hong!"
+// This should work as expected!
