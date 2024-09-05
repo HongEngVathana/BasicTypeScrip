@@ -6,6 +6,7 @@
 //5.Enums
 //6.Type Aliases
 //7.Type Scrip Umion Types
+//8.Function
 //1=======================================Data Type==========================================
 // Number
 let integer = 42;
